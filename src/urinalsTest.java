@@ -9,7 +9,7 @@ public class urinalsTest {
     @Test
     void testForWrongInput() {
         Execution ex = new Execution();
-        boolean b = ex.goodString("Vikranth");
+        boolean b = Execution.goodString("Vikranth");
         System.out.println("====== VIKRANTH REDDY TRIPURAM == TEST ONE EXECUTED =======");
         Assertions.assertEquals(false,b);
     }

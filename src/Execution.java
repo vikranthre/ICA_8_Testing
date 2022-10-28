@@ -1,22 +1,26 @@
+
+
 public class Execution {
 
-    public void openFile()
-    {
 
-    }
 
-    public Boolean goodString(String s)
-    {
-        System.out.println("Not Yet Implemented");
+
+    static Boolean goodString(String s)
+    { // checks to see if valid string
+        for(int i=0;i<s.length();i++)
+        {
+            if(i+1<s.length())
+            {
+                if(s.charAt(i)=='1' && s.charAt(i+1)=='1')
+                    return  false;
+            }
+            if(s.charAt(i)!='0' && s.charAt(i)!='1')
+            {
+                return false;
+            }
+        }
         return true;
     }
-    public Integer countUrinals(String s)
-    {
-        return 0;
-    }
-    public String getString()
-    {
-        return null;
-    }
+
 
 }
