@@ -2,7 +2,14 @@
 
 public class Execution {
 
+    public void openFile()
+    {
 
+    }
+    public String getString()
+    {
+        return null;
+    }
 
 
     static Boolean goodString(String s)
@@ -21,6 +28,11 @@ public class Execution {
         }
         return true;
     }
+    public static int countUrinals(String s)
+    {
+        System.out.println("Not yet implemented");
+        return 0;
 
+    }
 
 }

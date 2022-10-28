@@ -13,5 +13,13 @@ public class urinalsTest {
         System.out.println("====== VIKRANTH REDDY TRIPURAM == TEST ONE EXECUTED =======");
         Assertions.assertEquals(false,b);
     }
+    @Test
+    void testingFailedScenarioForCountUrinals() {
+        Execution ex = new Execution();
+        boolean b = Execution.goodString("10000000");
+        System.out.println("====== VIKRANTH REDDY TRIPURAM == TEST Two EXECUTED =======");
+        Assertions.assertEquals(3,b);
+    }
+
 
 }
