@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.Scanner;
 
 //import static javax.swing.text.rtf.RTFAttributes.BooleanAttribute.True;
@@ -18,9 +19,20 @@ public class Execution {
     }
 
 
-    public boolean openFile() {
-        System.out.println("File open error");
-        return true;
+    public boolean openFile() throws IOException  {
+        FileReader file =  new FileReader(new File("src/urinal.dat"));;
+        BufferedReader br = new BufferedReader(file);
+        String line = br.readLine();;
+        System.out.println(line);
+        System.out.println("Urinals count : " + countUrinals(line));
+        while (line != null) {
+            if(line.equals("-1")){
+                break;
+            }
+            System.out.println(line);
+            System.out.println("Urinals count : " + countUrinals(line));
+        }
+        return false;
 
     }
 

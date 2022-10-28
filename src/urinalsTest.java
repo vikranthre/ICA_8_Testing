@@ -1,29 +1,39 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class urinalsTest {
-
-
+    Urinals urinals = new Urinals();
     @Test
-    void testForWrongInput() {
-        Execution ex = new Execution();
-        boolean b = Execution.goodString("Vikranth");
-        System.out.println("====== VIKRANTH REDDY TRIPURAM == TEST ONE EXECUTED =======");
-        Assertions.assertEquals(false,b);
+    public void testgoodString1()
+    {
+        System.out.println("==========VIKRANTH REDDY TRIPURAM=Test one executed========");
+        assertEquals(true,urinals.goodString("0001001"));
+
     }
     @Test
-    void testingFailedScenarioForCountUrinals() {
-        Execution ex = new Execution();
-        int b = Execution.countUrinals("10000000");
-        System.out.println("====== VIKRANTH REDDY TRIPURAM == TEST Two EXECUTED =======");
-        Assertions.assertEquals(3,b);
+    public void testgoodString2()
+    {
+        System.out.println("==========VIKRANTH REDDY TRIPURAM==Test 2 executed========");
+        assertEquals(false,urinals.goodString("000vamsi001"));
     }
-
     @Test
-    void FileOpenError(){
-        Execution ex = new Execution();
-        System.out.println("====== VIKRANTH REDDY TRIPURAM == TEST THREE EXECUTED =======");
-        Assertions.assertEquals(false,ex.openFile());
+    public void testgoodString3()
+    {
+        System.out.println("==========VIKRANTH REDDY TRIPURAM==Test 3 executed========");
+        assertEquals(true,urinals.goodString("0001001"));
     }
-
-
+    @Test
+    public void testCodeUrinals1()
+    {
+        System.out.println("==========VIKRANTH REDDY TRIPURAM==Test 4 executed========");
+        assertEquals(1,urinals.countUrinals("0001001"));
+    }
+    @Test
+    public void testCodeUrinals2()
+    {
+        System.out.println("==========VIKRANTH REDDY TRIPURAM==Test 5 executed========");
+        assertEquals(-1,urinals.countUrinals("1101001"));
+    }
 }
+
+
