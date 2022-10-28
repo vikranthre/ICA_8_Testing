@@ -1,38 +1,90 @@
+import java.util.Scanner;
 
+//import static javax.swing.text.rtf.RTFAttributes.BooleanAttribute.True;
 
 public class Execution {
 
-    public void openFile()
-    {
-
-    }
-    public String getString()
-    {
-        return null;
-    }
-
-
-    static Boolean goodString(String s)
-    { // checks to see if valid string
-        for(int i=0;i<s.length();i++)
-        {
-            if(i+1<s.length())
-            {
-                if(s.charAt(i)=='1' && s.charAt(i+1)=='1')
-                    return  false;
+    public static boolean goodString(String s) {
+        for (int j = 0; j < s.length(); j++) {
+            if (j + 1 < s.length()) {
+                if (s.charAt(j) == '1' && s.charAt(j + 1) == '1')
+                    return false;
             }
-            if(s.charAt(i)!='0' && s.charAt(i)!='1')
-            {
+            if (s.charAt(j) != '0' && s.charAt(j) != '1') {
                 return false;
             }
         }
         return true;
     }
-    public static int countUrinals(String s)
-    {
-        System.out.println("Not yet implemented");
-        return 0;
+
+
+    public boolean openFile() {
+        System.out.println("File open error");
+        return true;
 
     }
 
-}
+    public String getString() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the input: ");
+        String str = sc.nextLine();
+        return str;
+
+    }
+
+
+    /*    static Boolean goodString(String s)
+        { // checks to see if valid string
+            for(int j=0;j<s.length();j++)
+            {
+                if(j+1<s.length())
+                {
+                    if(s.charAt(j)=='1' && s.charAt(j+1)=='1')
+                        return  false;
+                }
+                if(s.charAt(j)!='0' && s.charAt(j)!='1')
+                {
+                    return false;
+                }
+            }
+            return true;
+        }*/
+    public static int countUrinals(String str) {
+        Urinals un = new Urinals();
+        boolean isTrue = un.goodString(str);
+        if (!isTrue)
+            return -1;
+        String[] s = str.split("");
+        int count = 0;
+        int len = s.length;
+        int status[] = new int[len];
+        for (int i = 0; i < len; i++) {
+            status[i] = Integer.parseInt(String.valueOf(s[i]));
+        }
+        if (len == 1) {
+            if (status[0] == 0) {
+                count = 1;
+                status[0] = 1;
+            }
+        } else {
+            int i = 0;
+            if (status[i] == 0 && status[i + 1] != 1) {
+                status[i] = 1;
+                count++;
+
+            }
+            for (i = 1; i < len - 1; i++) {
+                if (status[i] == 0 && status[i - 1] != 1 && status[i + 1] != 1) {
+                    status[i] = 1;
+                    count++;
+                }
+            }
+            if (status[i] == 0 && status[i - 1] != 1) {
+                count++;
+                status[i] = 1;
+            }
+        }
+
+        return count;
+
+    }}

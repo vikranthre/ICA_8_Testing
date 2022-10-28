@@ -2,10 +2,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 public class urinalsTest {
 
-    @Test
-    void test1(String str) {
 
-    }
     @Test
     void testForWrongInput() {
         Execution ex = new Execution();
@@ -16,9 +13,16 @@ public class urinalsTest {
     @Test
     void testingFailedScenarioForCountUrinals() {
         Execution ex = new Execution();
-        boolean b = Execution.goodString("10000000");
+        int b = Execution.countUrinals("10000000");
         System.out.println("====== VIKRANTH REDDY TRIPURAM == TEST Two EXECUTED =======");
         Assertions.assertEquals(3,b);
+    }
+
+    @Test
+    void FileOpenError(){
+        Execution ex = new Execution();
+        System.out.println("====== VIKRANTH REDDY TRIPURAM == TEST THREE EXECUTED =======");
+        Assertions.assertEquals(false,ex.openFile());
     }
 
 
